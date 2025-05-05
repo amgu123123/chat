@@ -2,14 +2,14 @@ from datetime import datetime
 
 from pydantic import BaseModel
 
-
 class User(BaseModel):
     id: int
     username: str
     # email: str | None = None
 
 
-class UserCreate(User):
+class UserCreate(BaseModel):
+    username: str
     password: str
 
 

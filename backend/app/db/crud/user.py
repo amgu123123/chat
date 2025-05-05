@@ -8,7 +8,10 @@ from schemas.user import UserCreate, UserOut
 async def get_user_by_name(db: AsyncSession, name: str) -> UserOut | None:
     stmt = select(User).where(User.username == name)
     result = await db.execute(stmt)
-    schema_user = UserOut.model_validate(result.scalar())
+    user=result.scalar_one_or_none()
+    if user is None:
+        return user
+    schema_user = UserOut.model_validate(user)
     return schema_user
 
 

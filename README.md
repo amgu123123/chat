@@ -16,3 +16,4 @@
 | **实时通信**  | socket.IO                         |
 | **状态管理**  | Pinia                             |
 | **样式框架**  | Tailwind CSS                      |
+| **部署**      | Docker + Nginx                    |
